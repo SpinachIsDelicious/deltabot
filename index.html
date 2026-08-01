@@ -1550,18 +1550,18 @@
       const rotationProgressFill = document.getElementById("rotation-progress-fill");
       const rotationList = document.getElementById("rotation-list");
       const rotationSchedule = [
-        { start: 0, maps: ["Tide Prison", "Space City"], modes: ["Hard", "Normal"] },
-        { start: 2, maps: ["Space City", "Brakkesh"], modes: ["Hard", "Normal"] },
-        { start: 4, maps: ["Tide Prison", "Space City"], modes: ["Hard", "Normal"] },
-        { start: 6, maps: ["Space City", "Brakkesh"], modes: ["Hard", "Normal"] },
-        { start: 8, maps: ["Tide Prison", "Space City"], modes: ["Hard", "Normal"] },
-        { start: 10, maps: ["Space City", "Brakkesh"], modes: ["Hard", "Normal"] },
-        { start: 12, maps: ["Tide Prison", "Space City"], modes: ["Hard", "Normal"] },
-        { start: 14, maps: ["Space City", "Brakkesh"], modes: ["Normal", "Normal"] },
-        { start: 16, maps: ["Tide Prison", "Space City"], modes: ["Hard", "Normal"] },
-        { start: 18, maps: ["Space City", "Brakkesh"], modes: ["Hard", "Normal"] },
-        { start: 20, maps: ["Tide Prison", "Space City"], modes: ["Hard", "Normal"] },
-        { start: 22, maps: ["Space City", "Brakkesh"], modes: ["Hard", "Normal"] }
+        { start: 0, maps: ["Tide Prison", "Layali Grove", "Space City"], modes: ["Hard", "Easy", "Normal"] },
+        { start: 2, maps: ["Space City", "Brakkesh", "Space City"], modes: ["Hard", "Normal", "Normal"] },
+        { start: 4, maps: ["Tide Prison", "Layali Grove", "Space City"], modes: ["Hard", "Easy", "Normal"] },
+        { start: 6, maps: ["Space City", "Brakkesh", "Space City"], modes: ["Hard", "Normal", "Normal"] },
+        { start: 8, maps: ["Tide Prison", "Layali Grove", "Space City"], modes: ["Hard", "Easy", "Normal"] },
+        { start: 10, maps: ["Space City", "Brakkesh", "Space City"], modes: ["Hard", "Normal", "Normal"] },
+        { start: 12, maps: ["Tide Prison", "Layali Grove", "Space City"], modes: ["Hard", "Easy", "Normal"] },
+        { start: 14, maps: ["Space City", "Brakkesh", "Space City"], modes: ["Hard", "Normal", "Normal"] },
+        { start: 16, maps: ["Tide Prison", "Layali Grove", "Space City"], modes: ["Hard", "Easy", "Normal"] },
+        { start: 18, maps: ["Space City", "Brakkesh", "Space City"], modes: ["Hard", "Normal", "Normal"] },
+        { start: 20, maps: ["Tide Prison", "Layali Grove", "Space City"], modes: ["Hard", "Easy", "Normal"] },
+        { start: 22, maps: ["Space City", "Brakkesh", "Space City"], modes: ["Hard", "Normal", "Normal"] }
       ];
 
       const updateHeader = () => {
@@ -1658,7 +1658,7 @@
           `${formatRotationHour(now.getUTCHours())}:` +
           `${formatRotationHour(now.getUTCMinutes())} UTC`;
         rotationClock.dateTime = now.toISOString();
-        rotationCurrentMaps.textContent = current.maps.join(" + ");
+        rotationCurrentMaps.textContent = [...new Set(current.maps)].join(" + ");
         rotationCurrentDetail.textContent =
           `${rotationTimeLabel(current.start)} UTC · ` +
           current.maps
